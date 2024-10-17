@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import CheckBox from '@react-native-community/checkbox';
+import CheckBox from 'expo-checkbox';
 import { styles } from './styles'
 
 export function Home() {
@@ -38,7 +38,7 @@ export function Home() {
                 renderItem={({item}) => (
                     <View style={styles.card}>
                           <CheckBox
-                            disabled={false}
+                            style={styles.checkbox}
                             value={toggleCheckBox}
                             onValueChange={(newValue) => setToggleCheckBox(newValue)}
                         />
