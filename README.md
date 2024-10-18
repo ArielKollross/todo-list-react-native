@@ -44,8 +44,8 @@ Todo App foi criado com o intuíto de testar meus conhecimentos em ReactNative.
 
 
 <p align="left">
-  <img src="./.readme/mobile-screenshot-2.png" width="15%">
-  <img src="./.readme/mobile-screenshot-1.png" width="15%">
+  <img src="./.readme/mobile-screenshot-2.png" width="20%">
+  <img src="./.readme/mobile-screenshot-1.png" width=20%">
 </p>
 
 ## 🔨 Tecnologias utilizadas
