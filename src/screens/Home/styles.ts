@@ -3,31 +3,26 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#262626',
-        padding: 24
+        backgroundColor: '#1A1A1A',
+        padding: 24,
+        paddingTop: 0,
+        paddingBottom: 32
     },
     form: {
         width: '100%',
         flexDirection: 'row',
-        marginTop: 46,
-        marginBottom: 42
-    },
-    title: {
-        color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginTop: 42,
-        textAlign: 'center'
+        marginBottom: 42,
+        marginTop: -26,
     },
     textInput: {
         flex: 1,
         height: 56,
-        backgroundColor: '#FFF',
+        backgroundColor: '#262626',
         borderRadius: 5,
-        color: '#262626',
+        color: '#F2F2F2',
         padding: 16,
         fontSize: 16,
-        marginRight: 12
+        marginRight: 12,
     },
     button: {
         width: 56,
@@ -38,16 +33,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#1E6F9F',
     },
     buttonText: {
-        color: '#fff',
+        color: '#808080',
     },
-    card: {
-        padding: 20,
-        backgroundColor: '#808080',
-        height: 64,
-        borderRadius: 8,
-    },
-    taskTitle: {
-        color: '#fff',
-
-    }
 });

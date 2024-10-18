@@ -1,51 +1,72 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import CheckBox from 'expo-checkbox';
+import { View, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import { StatusHeader } from './components/StatusHeader';
+import { NoTaskBoard } from './components/NoTaskBoard';
+import { TaskItem } from './components/TaskItem';
+
 import { styles } from './styles'
+import {  PlusCircle } from 'phosphor-react-native'
 
 export function Home() {
-    const [taks, setTasks] = useState(['task 1']);
+    const [tasks, setTasks] = useState([]);
     const [taskName, setTaskName] = useState('');
-    const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
     function handleCreateNewTask() {
-        setTasks((state) => [...taks, taskName])
+        const newTask = {
+            id: new Date().getTime(),
+            name: taskName,
+            done: false,
+        }
+
+        setTasks((state) => [...tasks, newTask]);
+
+        setTaskName('');
+    }
+
+    function handleDeleteTask(taskId) {
+        setTasks((state) => state.filter((item) => item.id !== taskId));
+    }
+
+    function handleToggleTaskDone(taskId) {
+        setTasks((prevTasks) =>
+          prevTasks.map((item) => (item.id === taskId ? { ...item, done: !item.done } : item))
+        );
     }
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>
-                Todo App
-            </Text>
-
             <View style={styles.form}>
                 <TextInput
                     style={styles.textInput}
                     placeholder='Adicionar uma tarefa'
                     value={taskName}
-                    onChange={setTaskName}
+                    onChangeText={setTaskName}
+                    placeholderTextColor='#808080'
                 />
                 <TouchableOpacity
                     style={styles.button}
                     onPress={handleCreateNewTask}
                 >
-                    <Text style={styles.buttonText}>+</Text>
+                    <PlusCircle size={24} color="#F2F2F2" />
                 </TouchableOpacity>
             </View>
 
+            <StatusHeader tasks={tasks} />
+
+            {tasks.length === 0 && (
+                <NoTaskBoard />
+            )}
+
             <FlatList
-                data={taks}
+                keyExtractor={item => item.id}
+                data={tasks}
                 renderItem={({item}) => (
-                    <View style={styles.card}>
-                          <CheckBox
-                            style={styles.checkbox}
-                            value={toggleCheckBox}
-                            onValueChange={(newValue) => setToggleCheckBox(newValue)}
-                        />
-                        <Text style={styles.taskTitle}>{item}</Text>
-                    </View>
+                    <TaskItem
+                        task={item}
+                        onDeleteTask={handleDeleteTask}
+                        onToggleTaskDone={handleToggleTaskDone}
+                    />
                 )}
-                keyExtractor={item => item}
             />
         </View>
     );
