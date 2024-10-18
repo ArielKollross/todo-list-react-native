@@ -39,7 +39,8 @@ Todo App foi criado com o intuíto de testar meus conhecimentos em ReactNative.
 
 
 ## 🎨 Layout
-<a href="https://www.figma.com/design/7eO98IqGAag56hN1hHrvNp/ToDo-List-%E2%80%A2-Desafio-React-Native-(Copy)?node-id=3603-3995&node-type=frame&t=CkaE0PDhGvZsb5du-0">Figma do projeto</a>
+<a href="https://www.figma.com/file/1XfZQGSWk4HWjvwcjd2nOP/ToDo-List/duplicate">Figma do projeto</a>
+<br>
 
 
 <p align="left">
